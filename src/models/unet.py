@@ -1,8 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torchsummary import summary
-from torchviz import make_dot
+from torchinfo import summary
 
 # 收縮路徑 (Contracting Path) #
 class EncoderBlock(nn.Module):
@@ -103,4 +102,4 @@ class UNet(nn.Module):
 if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = UNet(input_channels=3, num_classes=2).to(device)
-    summary(model, input_size=(3, 256, 256), device=device)
+    summary(model, input_size=(1, 3, 256, 256), device=device)
