@@ -76,5 +76,4 @@ python train.py
 ├── saved_models/
 │    ├── best_unet_model.pth
 │    └── best_resnet34_unet_model.pth
-│  
 ```
