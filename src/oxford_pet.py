@@ -100,9 +100,20 @@ if __name__ == "__main__":
     # 確保 images 和 annotations 數量一致 #
     assert len(image_files) == len(mask_files), "影像與標註數量不匹配！"
 
-    # 隨機劃分資料集 (80% 訓練、10% 驗證、10% 測試) #
-    train_img, temp_img, train_mask, temp_mask = train_test_split(image_files, mask_files, test_size=0.2, random_state=42)
-    val_img, test_img, val_mask, test_mask = train_test_split(temp_img, temp_mask, test_size=0.5, random_state=42)
+    # 以排序方式劃分資料集 (80% 訓練、10% 驗證、10% 測試) #
+    total_samples = len(image_files)
+    train_end = int(0.8 * total_samples)
+    val_end = int(0.9 * total_samples)  # 剩下的 20% 裡再分一半給 val / test
+
+    # 依照 index 切割資料
+    train_img = image_files[:train_end]
+    train_mask = mask_files[:train_end]
+
+    val_img = image_files[train_end:val_end]
+    val_mask = mask_files[train_end:val_end]
+
+    test_img = image_files[val_end:]
+    test_mask = mask_files[val_end:]
 
     # 建立 PyTorch Dataset
     train_dataset = OxfordPets(train_img, train_mask, transform=None)
