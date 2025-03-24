@@ -77,3 +77,25 @@ python train.py
 │    ├── best_unet_model.pth
 │    └── best_resnet34_unet_model.pth
 ```
+## 📊 結果展示
+| Model | Loss|IoU (Val) |Dice Score (Val)|
+|  :----:  | :----:  | :----:|:----:|
+| U-Net  | 0.1307 |0.9246|0.9606|
+| ResNet34 & U-Net  | 0.1460|0.9164 |0.9561|
+
+U-Net Loss 與 Dice Score 折線圖：
+![UNet](https://github.com/user-attachments/assets/e6365fce-bd7f-4df1-b3ef-4be3236e0ad6)
+
+ResNet34 & U-Net Loss 與 Dice Score 折線圖：
+![ResNet](https://github.com/user-attachments/assets/1bc83efe-b0ef-4233-b3e0-1b15c6e59dfb)
+
+U-Net 測試結果：
+![unet](https://github.com/user-attachments/assets/766ad611-e885-41bf-aab2-11a57df906e0)
+
+ResNet34 & U-Net 測試結果：
+![resnet](https://github.com/user-attachments/assets/76c66929-0302-4e2c-8131-60011c7c2a44)
+
+## 🙏 感謝資源
+- [Oxford-IIIT Pet Dataset](https://www.robots.ox.ac.uk/~vgg/data/pets/)
+- [U-Net: Convolutional Networks for Biomedical Image Segmentation](<http://arxiv.org/abs/1505.04597>)
+- [Deep Residual Learning for Image Recognition](<http://arxiv.org/abs/1512.03385>)
